@@ -584,3 +584,14 @@ df_clean |>
   ncol()
 ```
 
+```{r remove-non-numeric}
+# Remove non-numeric elements and convert to numeric
+df_clean$hfa_z_score_who <- str_replace_all(as.character(df_clean$hfa_z_score_who), "[^0-9.-]", "")
+df_clean$bmi_who <- str_replace_all(as.character(df_clean$bmi_who), "[^0-9.-]", "")
+df_clean$wfa_z_score_who <- str_replace_all(as.character(df_clean$wfa_z_score_who), "[^0-9.-]", "")
+df_clean$wfh_z_score_who <- str_replace_all(as.character(df_clean$wfh_z_score_who), "[^0-9.-]", "")
+df_clean$bmi_z_score_who <- str_replace_all(as.character(df_clean$bmi_z_score_who), "[^0-9.-]", "")
+df_clean$child_weight_kg <- str_replace_all(as.character(df_clean$child_weight_kg), "[^0-9.-]", "")
+df_clean$child_lenhei_cm <- str_replace_all(as.character(df_clean$child_lenhei_cm), "[^0-9.-]", "")
+```
+
