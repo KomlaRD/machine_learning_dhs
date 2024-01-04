@@ -759,7 +759,6 @@ df_clean <- df_clean |>
     child_had_diarrhoea_last_two_weeks,
     health_insurance,
     mother_educational_level,
-    mother_functional_disability_18_49,
     ethnicity,
     child_under_five_sample_weight,
     combined_wealth_score,
@@ -850,4 +849,10 @@ df_clean <-
 skim(df_clean)
 ```
 
+```{r export-dataset}
+# RData
+export(df_clean, here("data", "df_clean.RData"))
+# CSV file
+export(df_clean, here("data", "df_clean.csv"))
+```
 
