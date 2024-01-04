@@ -595,3 +595,32 @@ df_clean$child_weight_kg <- str_replace_all(as.character(df_clean$child_weight_k
 df_clean$child_lenhei_cm <- str_replace_all(as.character(df_clean$child_lenhei_cm), "[^0-9.-]", "")
 ```
 
+```{r empty-field}
+# Remove empty text fields using dplyr and stringr
+df_clean <- df_clean %>%
+  filter(str_trim(as.character(hfa_z_score_who, bmi_who, wfa_z_score_who, wfh_z_score_who, bmi_z_score_who, child_weight_kg, child_lenhei_cm)) != "")
+```
+
+```{r convert-nutritional-indicator}
+df_clean <- 
+  df_clean |>
+  mutate (
+    hfa_z_score_who = as.double(hfa_z_score_who),
+    bmi_who = as.double(bmi_who),
+    bmi_z_score_who = as.double(bmi_z_score_who),
+    wfa_z_score_who = as.double(wfa_z_score_who),
+    wfh_z_score_who = as.double(wfh_z_score_who),
+    child_weight_kg = as.double(child_weight_kg),
+    child_lenhei_cm = as.double(child_lenhei_cm)
+  )
+```
+
+```{r row-sentence-case}
+# Convert row values to sentence case
+df_clean <- df_clean |>
+    mutate_if(is.factor, ~ as.factor(str_to_sentence(.)))
+```
+
+
+
+
