@@ -17,3 +17,9 @@ pacman::p_load(
 ```
 
 ## Import dataset
+
+```{r load-dataset}
+# Load dataset for MICS6 (2017-2018)
+df <- import(here("data","ch.sav"), haven=FALSE, use.value.labels = TRUE) 
+```
+
