@@ -12,16 +12,19 @@ pacman::p_load(
   tidyverse, # Data management and visualisation
   rio, # Import and export dataset
   here, # File management
-  finalfit # Labelling
+  finalfit, # Labelling
+  gtExtras, # Summary tables
+  foreign # Read spss dataset
 )
 ```
 
 ## Import dataset
 
-```{r load-dataset}
+```{r}
 # Load dataset for MICS6 (2017-2018)
-df <- import(here("data","ch.sav"), haven=FALSE, use.value.labels = TRUE) 
+df <- read.spss("data/ch.sav", to.data.frame = TRUE) 
 ```
+
 
 ```{r rename-columns}
 # Rename features and use descriptive names
@@ -767,4 +770,43 @@ df_clean <- df_clean |>
 ```
 
 
+```{r summary-eda}
+gt_plt_summary(df_clean)
+```
+
+```{r mutate-factor-variables}
+df_clean <- 
+  df_clean |>
+  mutate (
+    mother_educational_level = mother_educational_level |>
+      fct_relevel(
+      "Pre-primary or none",
+      "Primary",
+      "Jss/jhs/middle",
+      "Sss/shs/ secondary",
+      "Higher"
+    ),
+    wealth_index_decile = wealth_index_decile |>
+      fct_relevel(
+      "1st decile",
+      "2nd decile",
+      "3rd decile",
+      "4th decile",
+      "5th decile",
+      "6th decile",
+      "7th decile",
+      "8th decile",
+      "9th decile",
+      "10th decile"
+    ),
+    wealth_index_quintile = wealth_index_quintile |>
+      fct_relevel(
+        "Poorest",
+        "Second",
+        "Middle",
+        "Fourth",
+        "Richest"
+      )
+  )
+```
 
