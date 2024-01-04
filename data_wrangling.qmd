@@ -807,6 +807,16 @@ df_clean <-
   )
 ```
 
+```{r}
+# Drop unused factors
+df_clean <- df_clean |>
+  mutate(
+    child_ill_cough_two_weeks = fct_drop(child_ill_cough_two_weeks, only = "Dk"),
+    child_had_diarrhoea_last_two_weeks = fct_drop( child_had_diarrhoea_last_two_weeks, only = "Dk"),
+    child_ill_fever_two_weeks = fct_drop( child_ill_fever_two_weeks, only = "Dk")
+  )
+```
+
 
 ```{r summary-eda}
 gt_plt_summary(df_clean)
@@ -831,8 +841,4 @@ df_clean <-
 skim(df_clean)
 ```
 
-```{r}
-# Filter Don't knows from dataset
-fct_drop(c(df_clean$child_had_diarrhoea_last_two_weeks, df_clean$child_ill_cough_two_weeks, df_clean$child_ill_fever_two_weeks), only = "Dk")
-```
 
