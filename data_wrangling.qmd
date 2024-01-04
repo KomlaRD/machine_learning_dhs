@@ -1,0 +1,19 @@
+---
+title: "Predicting and Identifying Factors Associated with Undernutrition among Children Under Five Years in Ghana using Machine Learning Algorithms"
+author: "Eric Anku and Henry Ofori-Duah"
+format: html
+---
+
+
+## Load packages
+
+```{r load-packages, warning=FALSE}
+pacman::p_load(
+  tidyverse, # Data management and visualisation
+  rio, # Import and export dataset
+  here, # File management
+  finalfit # Labelling
+)
+```
+
+## Import dataset
