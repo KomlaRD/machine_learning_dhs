@@ -817,6 +817,15 @@ df_clean <- df_clean |>
   )
 ```
 
+```{r drop-flag}
+# Drop flag indicator
+df_clean <- 
+  df_clean |>
+  select(
+    -flag_indicators
+  )
+```
+
 
 ```{r summary-eda}
 gt_plt_summary(df_clean)
