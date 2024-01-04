@@ -741,3 +741,30 @@ df_clean <- df_clean |>
   na.omit()
 ```
 
+```{r select-columns}
+df_clean <- df_clean |> 
+  select(
+    age_days,
+    sex,
+    region,
+    area,
+    child_lenhei_cm,
+    child_weight_kg,
+    child_ill_cough_two_weeks,
+    child_ill_fever_two_weeks,
+    child_had_diarrhoea_last_two_weeks,
+    health_insurance,
+    mother_educational_level,
+    mother_functional_disability_18_49,
+    ethnicity,
+    child_under_five_sample_weight,
+    combined_wealth_score,
+    primary_sampling_unit,
+    underweight,
+    wasting,
+    stunting
+  )
+```
+
+
+
