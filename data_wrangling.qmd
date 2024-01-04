@@ -14,7 +14,8 @@ pacman::p_load(
   here, # File management
   finalfit, # Labelling
   gtExtras, # Summary tables
-  foreign # Read spss dataset
+  foreign, # Read spss dataset
+  skimr # Skim dataset
 )
 ```
 
@@ -765,7 +766,16 @@ df_clean <- df_clean |>
     primary_sampling_unit,
     underweight,
     wasting,
-    stunting
+    stunting,
+    flag_indicators
+  )
+```
+
+```{r remove-flag-anthros}
+# Filter children with flagged anthros
+df_clean <- df_clean |>
+  filter(
+    flag_indicators == "No flag"
   )
 ```
 
@@ -785,28 +795,16 @@ df_clean <-
       "Jss/jhs/middle",
       "Sss/shs/ secondary",
       "Higher"
-    ),
-    wealth_index_decile = wealth_index_decile |>
-      fct_relevel(
-      "1st decile",
-      "2nd decile",
-      "3rd decile",
-      "4th decile",
-      "5th decile",
-      "6th decile",
-      "7th decile",
-      "8th decile",
-      "9th decile",
-      "10th decile"
-    ),
-    wealth_index_quintile = wealth_index_quintile |>
-      fct_relevel(
-        "Poorest",
-        "Second",
-        "Middle",
-        "Fourth",
-        "Richest"
-      )
+    )
   )
+```
+
+```{r skim-dataset}
+skim(df_clean)
+```
+
+```{r}
+# Filter Don't knows from dataset
+fct_drop(c(df_clean$child_had_diarrhoea_last_two_weeks, df_clean$child_ill_cough_two_weeks, df_clean$child_ill_fever_two_weeks), only = "Dk")
 ```
 
