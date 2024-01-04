@@ -779,6 +779,34 @@ df_clean <- df_clean |>
   )
 ```
 
+```{r child-with-cough}
+# Remove children with Dk values
+## Cough
+df_clean <-
+  df_clean |>
+  filter(
+    child_ill_cough_two_weeks != "Dk"
+  )
+```
+
+```{r}
+## Diarrhea
+df_clean <-
+  df_clean |>
+  filter(
+    child_had_diarrhoea_last_two_weeks != "Dk"
+  )
+```
+
+```{r}
+## Fever
+df_clean <-
+  df_clean |>
+  filter(
+    child_ill_fever_two_weeks != "Dk"
+  )
+```
+
 
 ```{r summary-eda}
 gt_plt_summary(df_clean)
