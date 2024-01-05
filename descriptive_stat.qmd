@@ -1,0 +1,6 @@
+---
+title: "Descriptive statistics"
+author: "Eric Anku and Henry Ofori-Duah"
+format: html
+---
+
