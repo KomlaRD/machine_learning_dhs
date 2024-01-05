@@ -21,7 +21,7 @@ pacman::p_load(
 
 ## Import dataset
 
-```{r}
+```{r load-dataset, warning=FALSE, message=FALSE}
 # Load dataset for MICS6 (2017-2018)
 df <- read.spss("data/ch.sav", to.data.frame = TRUE) 
 ```
