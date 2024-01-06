@@ -4,3 +4,14 @@ author: "Eric Anku and Henry Ofori-Duah"
 format: html
 ---
 
+```{r load-packages}
+pacman::p_load(
+  rio, # Import and export dataset
+  gtsummary, # Descriptive tables
+  survey, # Manipulating survey dataset
+  skimr, # Summary statistics
+  ggstatsplot, # EDA
+  ggplot2 # Visualisation
+)
+```
+
