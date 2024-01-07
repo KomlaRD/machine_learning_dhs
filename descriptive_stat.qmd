@@ -72,3 +72,16 @@ prop.table(cat<-svytable(~mother_educational_level + stunting,design=des), margi
 prop.table(cat<-svytable(~ethnicity + stunting,design=des), margin = 2)*100
 ```
 
+```{r variables-with-underweight}
+# Categorical variables by underweight outcome
+prop.table(cat<-svytable(~sex + underweight, design = des), margin = 2)*100
+prop.table(cat<-svytable(~region + underweight, design = des),margin = 2)*100
+prop.table(cat<-svytable(~area + underweight,design=des), margin = 2)*100
+prop.table(cat<-svytable(~child_ill_cough_two_weeks + underweight,design = des), margin = 2)*100
+prop.table(cat<-svytable(~child_ill_fever_two_weeks + underweight,design = des),margin = 2)*100
+prop.table(cat<-svytable(~health_insurance + underweight, design = des), margin = 2)*100
+prop.table(cat<-svytable(~child_had_diarrhoea_last_two_weeks + underweight, design = des), margin = 2)*100
+prop.table(cat<-svytable(~mother_educational_level + underweight,design=des), margin = 2)*100
+prop.table(cat<-svytable(~ethnicity + underweight,design=des), margin = 2)*100
+```
+
