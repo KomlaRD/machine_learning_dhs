@@ -115,3 +115,30 @@ tab1P <- print(tab1,showAllLevels = TRUE)
 write.csv(tab1P, file = "data/tab1.csv")
 ```
 
+```{r table-one-stunting}
+## Stunting
+tab2 <- svyCreateTableOne(vars = c(
+  "age_days",
+  "sex",
+  "region", 
+  "area",
+  "child_lenhei_cm", 
+  "child_weight_kg",
+  "child_ill_cough_two_weeks",
+  "child_ill_fever_two_weeks",
+  "child_had_diarrhoea_last_two_weeks",
+  "health_insurance",
+  "mother_educational_level",
+  "ethnicity", 
+  "combined_wealth_score"),
+                          strata = "stunting",
+  data = des, 
+  addOverall = TRUE)
+
+print(tab2, showAllLevels = TRUE)
+
+tab2P <- print(tab2,showAllLevels = TRUE)
+
+write.csv(tab2P, file = "data/tab2.csv")
+```
+
