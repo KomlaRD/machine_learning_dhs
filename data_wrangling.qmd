@@ -766,7 +766,8 @@ df_clean <- df_clean |>
     underweight,
     wasting,
     stunting,
-    flag_indicators
+    flag_indicators,
+    stratum
   )
 ```
 
