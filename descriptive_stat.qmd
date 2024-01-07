@@ -20,5 +20,12 @@ pacman::p_load(
 ```{r survey-object}
 # Survey object
 des <- svydesign(ids=~primary_sampling_unit, strata=~stratum, weights=~child_under_five_sample_weight, data = df_clean, nest=T)
+summary(des)
+```
+```{r proportion-nutritional-indicators}
+# Proportion of nutritional indicators
+svymean(~wasting, des) # Wasting
+svymean(~stunting, des) # Stunting
+svymean(~underweight, des) # Underweight
 ```
 
