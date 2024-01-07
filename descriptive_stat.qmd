@@ -59,3 +59,16 @@ prop.table(cat<-svytable(~mother_educational_level + wasting,design=des), margin
 prop.table(cat<-svytable(~ethnicity + wasting,design=des), margin = 2)*100
 ```
 
+```{r  variables-by-stunting}
+# Categorical variables by stunting outcome
+prop.table(cat<-svytable(~sex + stunting, design = des), margin = 2)*100
+prop.table(cat<-svytable(~region + stunting, design = des),margin = 2)*100
+prop.table(cat<-svytable(~area + stunting,design=des), margin = 2)*100
+prop.table(cat<-svytable(~child_ill_cough_two_weeks + stunting,design = des), margin = 2)*100
+prop.table(cat<-svytable(~child_ill_fever_two_weeks + stunting,design = des),margin = 2)*100
+prop.table(cat<-svytable(~health_insurance + stunting, design = des), margin = 2)*100
+prop.table(cat<-svytable(~child_had_diarrhoea_last_two_weeks + stunting, design = des), margin = 2)*100
+prop.table(cat<-svytable(~mother_educational_level + stunting,design=des), margin = 2)*100
+prop.table(cat<-svytable(~ethnicity + stunting,design=des), margin = 2)*100
+```
+
