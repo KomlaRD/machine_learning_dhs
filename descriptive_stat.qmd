@@ -12,7 +12,8 @@ pacman::p_load(
   survey, # Manipulating survey dataset
   skimr, # Summary statistics
   ggstatsplot, # EDA
-  ggplot2 # Visualisation
+  ggplot2, # Visualisation
+  tableone # Create table one
 )
 ```
 
@@ -83,5 +84,34 @@ prop.table(cat<-svytable(~health_insurance + underweight, design = des), margin 
 prop.table(cat<-svytable(~child_had_diarrhoea_last_two_weeks + underweight, design = des), margin = 2)*100
 prop.table(cat<-svytable(~mother_educational_level + underweight,design=des), margin = 2)*100
 prop.table(cat<-svytable(~ethnicity + underweight,design=des), margin = 2)*100
+```
+
+```{r table-with-survey-object}
+# creating tables with "svyCreateTableOne" and the survey design object "des" previously created from the survey package 
+
+## Wasting
+tab1 <- svyCreateTableOne(vars = c(
+  "age_days",
+  "sex",
+  " region", 
+  "area",
+  "child_lenhei_cm", 
+  "child_weight_kg",
+  "child_ill_cough_two_weeks",
+  "child_ill_fever_two_weeks",
+  "child_had_diarrhoea_last_two_weeks",
+  "health_insurance",
+  "mother_educational_level",
+  "ethnicity", 
+  "combined_wealth_score"),
+                          strata = "wasting",
+  data = des, 
+  addOverall = TRUE)
+
+print(tab1, showAllLevels = TRUE)
+
+tab1P <- print(tab1,showAllLevels = TRUE)
+
+write.csv(tab1P, file = "data/tab1.csv")
 ```
 
