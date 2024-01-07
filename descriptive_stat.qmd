@@ -46,3 +46,16 @@ reg_est_stunting # Stunting
 reg_est_underweight # Underweight
 ```
 
+```{r variables-by-wasting}
+# Categorical variables by wasting outcome
+prop.table(cat<-svytable(~sex + wasting, design = des), margin = 2)*100
+prop.table(cat<-svytable(~region + wasting, design = des),margin = 2)*100
+prop.table(cat<-svytable(~area + wasting,design=des), margin = 2)*100
+prop.table(cat<-svytable(~child_ill_cough_two_weeks + wasting,design = des), margin = 2)*100
+prop.table(cat<-svytable(~child_ill_fever_two_weeks + wasting,design = des),margin = 2)*100
+prop.table(cat<-svytable(~health_insurance + wasting, design = des), margin = 2)*100
+prop.table(cat<-svytable(~child_had_diarrhoea_last_two_weeks + wasting, design = des), margin = 2)*100
+prop.table(cat<-svytable(~mother_educational_level + wasting,design=des), margin = 2)*100
+prop.table(cat<-svytable(~ethnicity + wasting,design=des), margin = 2)*100
+```
+
