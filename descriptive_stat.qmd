@@ -4,7 +4,7 @@ author: "Eric Anku and Henry Ofori-Duah"
 format: html
 ---
 
-```{r load-packages}
+```{r load-packages, message=FALSE, warning=FALSE}
 # Load packages
 pacman::p_load(
   rio, # Import and export dataset
@@ -93,7 +93,7 @@ prop.table(cat<-svytable(~ethnicity + underweight,design=des), margin = 2)*100
 tab1 <- svyCreateTableOne(vars = c(
   "age_days",
   "sex",
-  " region", 
+  "region", 
   "area",
   "child_lenhei_cm", 
   "child_weight_kg",
