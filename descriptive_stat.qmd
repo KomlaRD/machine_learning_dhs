@@ -169,3 +169,30 @@ tab3P <- print(tab3,showAllLevels = TRUE)
 write.csv(tab3P, file = "data/tab3.csv")
 ```
 
+
+```{r table-summary}
+## Table summary for all variables
+tab1a <- des |>
+  tbl_svysummary(
+    include = c(age_days,
+                sex,
+                region,
+                area,
+                child_lenhei_cm,
+                child_weight_kg,
+                child_ill_cough_two_weeks,
+                child_ill_fever_two_weeks,
+                child_had_diarrhoea_last_two_weeks,
+                health_insurance,
+                mother_educational_level,
+                ethnicity,
+                combined_wealth_score,
+                wasting,
+                stunting,
+                underweight), 
+    statistic = list(all_continuous() ~ "{mean} ({sd})")
+)
+
+tab1a
+```
+
