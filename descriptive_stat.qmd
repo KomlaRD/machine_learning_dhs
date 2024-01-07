@@ -196,3 +196,31 @@ tab1a <- des |>
 tab1a
 ```
 
+
+```{r table-summary-wasting}
+## Table summary stratified by wasting
+tab2wasting <- des |>
+  tbl_svysummary(
+    by = wasting,
+    include = c(age_days,
+                sex,
+                region,
+                area,
+                child_lenhei_cm,
+                child_weight_kg,
+                child_ill_cough_two_weeks,
+                child_ill_fever_two_weeks,
+                child_had_diarrhoea_last_two_weeks,
+                health_insurance,
+                mother_educational_level,
+                ethnicity,
+                combined_wealth_score,
+                wasting), 
+    statistic = list(all_continuous() ~ "{mean} ({sd})")
+) |>
+  add_p()  |> # Add p-values
+  bold_p() # Bolden significant p-values
+
+tab2wasting
+```
+
