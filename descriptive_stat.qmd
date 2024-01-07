@@ -19,7 +19,7 @@ pacman::p_load(
 ```
 
 ```{r load-dataset}
-df_clean <- import("data", "df_clean.RData")
+df_clean <- import(here("data", "df_clean.RData"))
 ```
 
 
