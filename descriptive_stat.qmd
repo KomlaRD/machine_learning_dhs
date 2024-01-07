@@ -5,6 +5,7 @@ format: html
 ---
 
 ```{r load-packages}
+# Load packages
 pacman::p_load(
   rio, # Import and export dataset
   gtsummary, # Descriptive tables
@@ -13,5 +14,11 @@ pacman::p_load(
   ggstatsplot, # EDA
   ggplot2 # Visualisation
 )
+```
+
+
+```{r survey-object}
+# Survey object
+des <- svydesign(ids=~primary_sampling_unit, strata=~stratum, weights=~child_under_five_sample_weight, data = df_clean, nest=T)
 ```
 
