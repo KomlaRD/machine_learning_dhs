@@ -825,6 +825,22 @@ df_clean <-
   )
 ```
 
+```{r remove-missing-level}
+# Remove missing level from ethnicity
+df_clean <-
+  df_clean |>
+  filter(
+    ethnicity != "Missing"
+  )
+```
+
+```{r drop-missin-level}
+# Drop missing level from ethnicity
+df_clean <- df_clean |>
+  mutate(
+    ethnicity = fct_drop(ethnicity, only = "Missing")
+  )
+```
 
 ```{r summary-eda}
 gt_plt_summary(df_clean)
