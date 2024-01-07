@@ -251,3 +251,30 @@ tab3stunting <- des |>
 tab3stunting
 ```
 
+```{r table-summary-underweight}
+## Table summary stratified by underweight
+tab2underweight <- des |>
+  tbl_svysummary(
+    by = underweight,
+    include = c(age_days,
+                sex,
+                region,
+                area,
+                child_lenhei_cm,
+                child_weight_kg,
+                child_ill_cough_two_weeks,
+                child_ill_fever_two_weeks,
+                child_had_diarrhoea_last_two_weeks,
+                health_insurance,
+                mother_educational_level,
+                ethnicity,
+                combined_wealth_score,
+                underweight), 
+    statistic = list(all_continuous() ~ "{mean} ({sd})")
+) |>
+  add_p()  |> # Add p-values
+  bold_p() # Bold significant p-values
+
+tab4underweight
+```
+
