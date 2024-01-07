@@ -577,7 +577,6 @@ df_clean <- df_clean |>
     place_got_antimalaria_missing,
     listing_category,
     child_line_number_two,
-    stratum,
     child_measure_lenhei,
     health_insurance_nhis,
     number_women_20_24
