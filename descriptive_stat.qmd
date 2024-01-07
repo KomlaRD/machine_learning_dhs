@@ -260,7 +260,7 @@ tab3stunting
 
 ```{r table-summary-underweight}
 ## Table summary stratified by underweight
-tab2underweight <- des |>
+tab4underweight <- des |>
   tbl_svysummary(
     by = underweight,
     include = c(age_days,
