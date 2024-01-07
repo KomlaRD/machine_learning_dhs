@@ -28,4 +28,21 @@ svymean(~wasting, des) # Wasting
 svymean(~stunting, des) # Stunting
 svymean(~underweight, des) # Underweight
 ```
+```{r regional-burden-undernutrition}
+# Regional burden of undernutrition
+
+## Wasting
+reg_est_wasting <-svyby(~wasting, ~region, FUN = svymean, na.rm=T, design =des)
+
+## Stunting
+reg_est_stunting <-svyby(~stunting, ~region, FUN = svymean, na.rm=T, design =des)
+
+## Underweight
+reg_est_underweight <-svyby(~underweight, ~region, FUN = svymean, na.rm=T, design =des)
+
+## Print output
+reg_est_wasting # Wasting
+reg_est_stunting # Stunting
+reg_est_underweight # Underweight
+```
 
