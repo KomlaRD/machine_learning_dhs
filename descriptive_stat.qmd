@@ -14,7 +14,8 @@ pacman::p_load(
   skimr, # Summary statistics
   ggstatsplot, # EDA
   ggplot2, # Visualisation
-  tableone # Create table one
+  tableone, # Create table one
+  here # File management
 )
 ```
 
